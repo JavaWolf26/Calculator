@@ -3,8 +3,8 @@ package Calculator1;
 import java.util.Arrays;
 
 public class Calculator extends Massiv {
-
-	public static void main(String[] args) {
+	
+	public static void main(String[] args) throws Exception {
 
 		System.out.println("Vvedite arifmeti4eskoe virazenie,");
 		System.out.println("neobhodimi arabskie 4isla ot 0 do 9");
@@ -20,24 +20,24 @@ public class Calculator extends Massiv {
 		int i1;
 		int i2;
 		int result;
+		String result_rim;
 
 		try {
-			if (Arrays.asList(arab).contains(str1) && Arrays.asList(arab).contains(str2)
-					&& Arrays.asList(arifmetic).contains(arif)) {
-				i1 = prov_arab(str1);
-				i2 = prov_arab(str2);
+			if(prov_arab(str1, str2, arif)) {
+				i1 = arab(str1);
+				i2 = arab(str2);
 				result = rechenie(arif, i1, i2);
 				System.out.print(result);
 				if (Arrays.asList(arifmetic).indexOf(arif) == 3)
-					ostatok(arif, i1, i2);
-			} else if (Arrays.asList(rim).contains(str1) && Arrays.asList(rim).contains(str2)
-					&& Arrays.asList(arifmetic).contains(arif)) {
-				i1 = prov_rim(str1);
-				i2 = prov_rim(str2);
+					ostatok_arab(arif, i1, i2);
+			} else if (prov_rim(str1, str2, arif)) {
+				i1 = rim(str1);
+				i2 = rim(str2);
 				result = rechenie(arif, i1, i2);
-				System.out.print(result);
+				result_rim = otvet_rim(result);
+				System.out.print(result_rim);
 				if (Arrays.asList(arifmetic).indexOf(arif) == 3)
-					ostatok(arif, i1, i2);
+					ostatok_rim(arif, i1, i2);
 			} else
 				System.out.println("Nevernii format arifmeti4eskogo virazenia");
 		} catch (ArithmeticException e) {
