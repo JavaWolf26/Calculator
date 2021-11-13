@@ -43,7 +43,5 @@ public class Calculator extends Massiv {
 		} catch (ArithmeticException e) {
 			System.out.println("Delit' na 0 nelza!");
 		}
-
-	}
-	
+	}	
 }
